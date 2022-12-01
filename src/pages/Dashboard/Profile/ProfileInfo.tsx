@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { StatusNumbers } from "../../../interface/MediaInterface"
-import axios from 'axios'
 import { MediaItemType } from '../../../interface/MediaInterface'
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
+import { fetchStatusInfoData } from '../../../services/MediaController'
 
 interface ProfileInfoPropsInterface {
     mediaList: MediaItemType[]
@@ -15,9 +15,8 @@ function ProfileInfo({ mediaList }: ProfileInfoPropsInterface) {
     const { displayName, email, profileImage } = useSelector((store: RootState) => store.user)
 
     async function fetchStatusInfo(userEmail?: String) {
-        const response = await axios.get(`http://localhost:5000/v1/media/status/?email=${userEmail}`)
-        const responseStatusNumbers = response.data
-        setStatusNumbers(responseStatusNumbers)
+        const response = await fetchStatusInfoData(userEmail)
+        setStatusNumbers(response)
     }
 
     useEffect(() => {

@@ -25,7 +25,7 @@ export async function fetchAllMediaData(email: string) {
   return allMedia;
 }
 
-export async function fetchStatusInfo(email: string) {
+export async function fetchStatusInfoData(email?: String) {
   const allMedia = await getAllMedia(email);
   const inProgress = allMedia.filter(
     (media) => media.statusType === 'In Progress'
@@ -37,13 +37,16 @@ export async function fetchStatusInfo(email: string) {
     (media) => media.statusType === 'To Explore'
   );
   const dropped = allMedia.filter((media) => media.statusType === 'Droppped');
-  return {
+
+  const statuses = {
     total: allMedia.length,
     inProgress: inProgress.length,
     completed: completed.length,
     toExplore: toExplore.length,
     dropped: dropped.length,
   };
+
+  return statuses;
 }
 
 export async function fetchMediaItems(type: String, email: string) {

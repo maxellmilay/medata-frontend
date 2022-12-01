@@ -14,13 +14,13 @@ export interface MediaInfoType extends StatusInterface {
   type: string;
   synopsis: string;
   photoURL: string;
-  email: string
+  email: string;
 }
 
 export interface StatusNumbers {
   total: number;
   inProgress: number;
   completed: number;
-  toExpore: number;
-  dropeed: number;
+  toExplore: number;
+  dropped: number;
 }
