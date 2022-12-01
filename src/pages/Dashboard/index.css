@@ -1,0 +1,27 @@
+.media-list {
+  /* height: 31.375rem; */
+  height: 27rem;
+}
+
+.media-item {
+  height: 36.375rem;
+}
+
+.media-filter {
+  height: 4rem;
+}
+
+.media-pic {
+  max-width: 15rem;
+  height: auto;
+}
+
+.add-item-button {
+  height: 4.375rem;
+}
+
+.progress-dropdown {
+  left: 5.75rem;
+  top: 2.12rem;
+  width: 11.325rem;
+}
